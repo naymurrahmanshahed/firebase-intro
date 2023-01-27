@@ -24,12 +24,15 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <Navbar />
+      <Navbar user={user} />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/profile" element={<Profile user={user} />} />
+        <Route
+          path="/profile"
+          element={<Profile user={user} setUser={setUser} />}
+        />
         <Route path="/requireauth" element={<RequireAuth />} />
         <Route path="/login" element={<Login />} />
       </Routes>
