@@ -9,7 +9,7 @@ const Navbar = ({ user }) => {
       </Link>
       <ul className="links flex gap-10 font-normal ">
         <li>
-          <Link to="/home" className="hover:text-rose-400 duration-300">
+          <Link to="/" className="hover:text-rose-400 duration-300">
             Home
           </Link>
         </li>
@@ -25,10 +25,10 @@ const Navbar = ({ user }) => {
         </li>
         <li>
           <Link
-            to={`/${user.email ? "profile" : "login"}`}
+            to={`/${user?.email ? "profile" : "login"}`}
             className="hover:text-rose-400 duration-300"
           >
-            {user.email ? `Wellcome, ${user.displayName}` : "Login"}
+            {user?.email ? `Wellcome, ${user.displayName}` : "Login"}
           </Link>
         </li>
       </ul>

@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
 import RequireAuth from "./components/RequireAuth";
+import RequireAuthTwo from "./components/RequireAuthTwo";
 
 const auth = getAuth(app);
 function App() {
@@ -31,10 +32,22 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route
           path="/profile"
-          element={<Profile user={user} setUser={setUser} />}
+          element={
+            <RequireAuth user={user}>
+              <Profile user={user} setUser={setUser} />
+            </RequireAuth>
+          }
         />
         <Route path="/requireauth" element={<RequireAuth />} />
-        <Route path="/login" element={<Login />} />
+
+        <Route
+          path="/login"
+          element={
+            <RequireAuthTwo user={user}>
+              <Login />
+            </RequireAuthTwo>
+          }
+        />
       </Routes>
     </div>
   );

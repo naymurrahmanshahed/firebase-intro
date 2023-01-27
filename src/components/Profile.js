@@ -10,7 +10,7 @@ const Profile = ({ user, setUser }) => {
   const handleSignIn = () => {
     signOut(auth)
       .then(() => {
-        setUser("");
+        setUser(null);
         navigate("/login");
       })
       .catch((error) => {
@@ -22,7 +22,7 @@ const Profile = ({ user, setUser }) => {
       <h2 className="section-title text-center text-4xl font-medium text-gray-500 mb-10">
         My Profile
       </h2>
-      {user.email && (
+      {user?.email && (
         <div className="profile-card flex  flex-col gap-3 items-center object-cover">
           <img className="h-28 w-28 rounded-full" src={user.photoURL} alt="" />
           <h3 className="text-5xl">{user.displayName}</h3>
